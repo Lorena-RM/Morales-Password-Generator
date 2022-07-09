@@ -18,6 +18,13 @@ const specialCharacArray =[
   "!","@","#","$","%","&","*","?","~",
 ]
 
+//first attempt at code
+function generatePassword () {
+  upperCase = confirm("Would you like Upper Case Characters in your password?");
+  lowerCase = confirm("Would you like lower Case Characters in your password?");
+  numbers = confirm("Would you like number Characters in your password?");
+  special = confirm("Would you like Special Characters in your password?")
+}
 
 
 // Write password to the #password input
