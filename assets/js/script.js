@@ -18,17 +18,20 @@ const specialArray =[
   "!","@","#","$","%","&","*","?","~",
 ];
 
-//this blank passwordArray variable is used so if user wants upper,lower,numer,or special chars in their password it will get pushed into this variable
+//pushes final password into this variable
+let password = [];
+
+//this blank passwordArray variable is used so if user wants upper,lower,numer,or special chars in their password it will get added into this variable
 let passwordArray = [];
 
 //1st function begins with deciding how many chars is in your password. using the (IF) statement if the data passes the condition of &&, it will continue on to the rest of the funtion.
 //IF it doesnt (say choosing a number outside of 6 and 30, then js will ignore that funtion and continue to the (ELSE) statement.)
 function generatePassword () {
-  passwordlength = prompt("How Many Characters Would You Like in your Password?");
-  console.log(passwordlength);
+  passwordLength = prompt("How Many Characters Would You Like in your Password?");
+  console.log(passwordLength);
 
 
-  if (passwordlength > 6 && passwordlength < 30){
+  if (passwordLength > 6 && passwordLength < 31){
     upperCase = confirm("Would you like Upper Case Characters in your password?");
     console.log(upperCase);
     lowerCase = confirm("Would you like lower Case Characters in your password?");
@@ -50,17 +53,28 @@ function generatePassword () {
     if (special === true) {
       passwordArray = passwordArray.concat(specialArray);
     }
-  } 
+    for (let index = 0; index < passwordLength; index++) {
+      password.push(passwordArray[Math.floor(math.random() * passwordArray.length)]);
+    }
+
+  } else {
+    //the condition that will run if choosing numbers outside of 6 and 30
+    alert("please choose a character length between 6 and 30")
+  }
+
+  return password
 }
 
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var passwordDisplay = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  passwordText.value = passwordDisplay;
 
+  password = [];
+  
 }
 
 // Add event listener to generate button
