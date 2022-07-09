@@ -31,14 +31,14 @@ function generatePassword () {
   console.log(passwordLength);
 
 
-  if (passwordLength > 6 && passwordLength < 31){
-    upperCase = confirm("Would you like Upper Case Characters in your password?");
+  if (passwordLength > 5 && passwordLength < 31){
+    upperCase = confirm("Would you like to use Upper Case Characters in your password?");
     console.log(upperCase);
-    lowerCase = confirm("Would you like lower Case Characters in your password?");
+    lowerCase = confirm("Would you like to use lower Case Characters in your password?");
     console.log(lowerCase);
-    numbers = confirm("Would you like number Characters in your password?");
+    numbers = confirm("Would you like to use number Characters in your password?");
     console.log(numbers);
-    special = confirm("Would you like Special Characters in your password?");
+    special = confirm("Would you like to use Special Characters in your password?");
     console.log(special);
 
     if (upperCase === true) {
@@ -54,7 +54,7 @@ function generatePassword () {
       passwordArray = passwordArray.concat(specialArray);
     }
     for (let index = 0; index < passwordLength; index++) {
-      password.push(passwordArray[Math.floor(math.random() * passwordArray.length)]);
+      password.push(passwordArray[Math.floor(Math.random() * passwordArray.length)]);
     }
 
   } else {
