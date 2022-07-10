@@ -31,21 +31,21 @@ function generatePassword () {
   console.log(passwordLength);
 
 
-  if (passwordLength > 5 && passwordLength < 31){
+  if (passwordLength > 7 && passwordLength < 129){
+    lowerCase = confirm("Would you like to use Lower Case Characters in your password?");
+    console.log(lowerCase);
     upperCase = confirm("Would you like to use Upper Case Characters in your password?");
     console.log(upperCase);
-    lowerCase = confirm("Would you like to use lower Case Characters in your password?");
-    console.log(lowerCase);
     numbers = confirm("Would you like to use number Characters in your password?");
     console.log(numbers);
     special = confirm("Would you like to use Special Characters in your password?");
     console.log(special);
 
-    if (upperCase === true) {
-      passwordArray = passwordArray.concat(upperCaseArray);
-    }
-    if (lowerCase === true){
+    if (lowerCase === true) {
       passwordArray = passwordArray.concat(lowerCaseArray);
+    }
+    if (upperCase === true){
+      passwordArray = passwordArray.concat(upperCaseArray);
     }
     if (numbers === true) {
       passwordArray = passwordArray.concat(numbersArray);
@@ -59,7 +59,7 @@ function generatePassword () {
 
   } else {
     //the condition that will run if choosing numbers outside of 6 and 30
-    alert("please choose a character length between 6 and 30")
+    alert("please choose a character length between 7 and 128")
   }
 
   return password
