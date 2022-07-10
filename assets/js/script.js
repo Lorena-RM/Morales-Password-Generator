@@ -64,7 +64,7 @@ function generatePassword () {
     alert("please choose a character length between 7 and 128")
   }
 
-  return password
+  return password.join("")
 }
 
 
