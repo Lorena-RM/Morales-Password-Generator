@@ -18,27 +18,29 @@ const specialArray =[
   "!","@","#","$","%","&","*","?","~",
 ];
 
-//pushes final password into this variable
-let password = [];
 
-//this blank passwordArray variable is used so if user wants upper,lower,numer,or special chars in their password it will get added into this variable
-let passwordArray = [];
 
 //1st function begins with deciding how many chars is in your password. using the (IF) statement if the data passes the condition of &&, it will continue on to the rest of the funtion.
 //IF it doesnt (say choosing a number outside of 6 and 30, then js will ignore that funtion and continue to the (ELSE) statement.)
 function generatePassword () {
+  //pushes final password into this variable
+  let password = [];
+
+  //this blank passwordArray variable is used so if user wants upper,lower,numer,or special chars in their password it will get added into this variable
+  let passwordArray = [];
+
   passwordLength = prompt("How Many Characters Would You Like in your Password?");
   console.log(passwordLength);
-
+  
 
   if (passwordLength > 7 && passwordLength < 129){
-    lowerCase = confirm("Would you like to use Lower Case Characters in your password?");
+    var lowerCase = confirm("Would you like to use Lower Case Characters in your password?");
     console.log(lowerCase);
-    upperCase = confirm("Would you like to use Upper Case Characters in your password?");
+    var upperCase = confirm("Would you like to use Upper Case Characters in your password?");
     console.log(upperCase);
-    numbers = confirm("Would you like to use number Characters in your password?");
+    var numbers = confirm("Would you like to use number Characters in your password?");
     console.log(numbers);
-    special = confirm("Would you like to use Special Characters in your password?");
+    var special = confirm("Would you like to use Special Characters in your password?");
     console.log(special);
 
     if (lowerCase === true) {
@@ -74,8 +76,6 @@ function writePassword() {
   passwordText.value = passwordDisplay;
 
   password = [];
-  
 }
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
