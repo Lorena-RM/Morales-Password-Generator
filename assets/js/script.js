@@ -18,22 +18,23 @@ const specialArray =[
   "!","@","#","$","%","&","*","?","~",
 ];
 
+//pushes final password into this variable
+let password = [];
+//this blank passwordArray variable is used so if user wants upper,lower,numer,or special chars in their password it will get added into this variable
+let passwordArray = [];
 
 
 //1st function begins with deciding how many chars is in your password. using the (IF) statement if the data passes the condition of &&, it will continue on to the rest of the funtion.
 //IF it doesnt (say choosing a number outside of 6 and 30, then js will ignore that funtion and continue to the (ELSE) statement.)
 function generatePassword () {
-  //pushes final password into this variable
-  let password = [];
-
-  //this blank passwordArray variable is used so if user wants upper,lower,numer,or special chars in their password it will get added into this variable
-  let passwordArray = [];
-
+  
+  //separated from if statements in case user choice a number outside of provided scope between 7 and 129
   passwordLength = prompt("How Many Characters Would You Like in your Password?");
   console.log(passwordLength);
   
 
-  if (passwordLength > 7 && passwordLength < 129){
+  if (passwordLength > 6 && passwordLength < 129){
+    //confirm messages
     var lowerCase = confirm("Would you like to use Lower Case Characters in your password?");
     console.log(lowerCase);
     var upperCase = confirm("Would you like to use Upper Case Characters in your password?");
@@ -42,7 +43,7 @@ function generatePassword () {
     console.log(numbers);
     var special = confirm("Would you like to use Special Characters in your password?");
     console.log(special);
-
+    //if conditions
     if (lowerCase === true) {
       passwordArray = passwordArray.concat(lowerCaseArray);
     }
@@ -60,10 +61,10 @@ function generatePassword () {
     }
 
   } else {
-    //the condition that will run if choosing numbers outside of 6 and 30
+    //the condition that will run if choosing numbers outside of 7 and 128
     alert("please choose a character length between 7 and 128")
   }
-
+ //returns password to screan and .join takes away comas on password
   return password.join("")
 }
 
@@ -76,6 +77,7 @@ function writePassword() {
   passwordText.value = passwordDisplay;
 
   password = [];
+  passwordArray = [];
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
